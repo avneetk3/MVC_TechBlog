@@ -1,0 +1,30 @@
+<a href="/dashboard" class="go-back"> &larr; Back to dashboard</a>
+
+<article class="new-page">
+    <section class="postEditPage">
+        <div class="headForm">
+            <h2>
+                Edit Post
+            </h2>
+        </div>
+        <div class="section">
+            <form class="postEditForm">
+                <div class="titleSectionPost">
+                    <label for="postTitle">Title</label>
+                    <input type="text" name="postTitle" id="postTitle" value="{{post.title}}" />
+                </div>
+                <div class="contentPost">
+                    <label for="contentPost">Content</label>
+                    <textarea class="entryField" id="contentPost" name="contentPost">{{post.content}}</textarea>
+                </div>
+                <button type="submit">Update post</button>
+                <button type="button" class="deleteBtn">Delete post</button>
+            </form>
+        </div>
+    </section>
+</article>
+
+{{#if loggedIn}}
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+{{/if}}
