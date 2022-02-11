@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 router.post('/', withAuth, (req, res) => {
     if (req.session) {
         Comment.create({
-                commentBody: req.body.commentBody,
+            comment_text: req.body.comment_text,
                 post_id: req.body.post_id,
                 userId: req.session.userId
             })
