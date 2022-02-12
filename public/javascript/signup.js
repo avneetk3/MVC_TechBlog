@@ -1,5 +1,3 @@
-const { response, response } = require("express");
-
 async function signupFormHandler(event) {
     event.preventDefault();
 
@@ -10,8 +8,8 @@ async function signupFormHandler(event) {
         const response = await fetch('/api/users', {
             method: 'post',
             body: JSON.stringify({
-                userName,
-                password
+                username: userName,
+                password: password
             }),
             headers: {
                 'Content-Type': 'application/json'
