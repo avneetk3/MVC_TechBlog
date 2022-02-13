@@ -40,7 +40,7 @@ const userLogin = async(e) =>{
         }
     });
     if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/home')
     } else {
         if(response.status == 400){
           alert("No user with that username!!")

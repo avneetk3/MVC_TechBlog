@@ -92,32 +92,31 @@ router.post('/login', (req, res) => {
                 req.session.userId = userData.id;
                 req.session.username = userData.username;
                 req.session.loggedIn = true;
-
                 res.json({
                     user: userData,
                     message: 'You are now logged in!'
                 });
             });
 
-            // const validPassword = userData.checkPassword(req.body.password);
+        //     const validPassword = userData.checkPassword(req.body.password);
 
-            // if (!validPassword) {
-            //     res.status(400).json({
-            //         message: 'Incorrect password!'
-            //     });
-            //     return;
-            // }
+        //     if (!validPassword) {
+        //         res.status(400).json({
+        //             message: 'Incorrect password!'
+        //         });
+        //         return;
+        //     }
 
-            // req.session.save(() => {
-            //     req.session.userId = userData.id;
-            //     req.session.username = userData.username;
-            //     req.session.loggedIn = true;
+        //     req.session.save(() => {
+        //         req.session.userId = userData.id;
+        //         req.session.username = userData.username;
+        //         req.session.loggedIn = true;
 
-            //     res.json({
-            //         user: userData,
-            //         message: 'You are now logged in!'
-            //     });
-            // });
+        //         res.json({
+        //             user: userData,
+        //             message: 'You are now logged in!'
+        //         });
+        //     });
         });
 });
 

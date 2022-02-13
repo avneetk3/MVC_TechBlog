@@ -1,7 +1,19 @@
 <ul class="postList">
     {{#each posts as |post|}}
     <li>
-        {{> post-info post }}
+        <!--{{> post-info post }}-->
+        <article class="post">
+      <div class="title">
+        <a href="{{p.content}}" target="_blank">{{p.title}}</a>
+        <span>({{p.content}})</span>
+      </div>
+      <div class="meta">
+        Created by {{p.user.username}} on
+        {{p.created_at}}
+        |
+        <a href="/post/{{p.id}}">{{p.comments.length}} comment(s)</a>
+      </div>
+    </article>
     </li>
     {{/each}}
 </ul>

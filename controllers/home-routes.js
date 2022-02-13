@@ -5,9 +5,9 @@ const { User,Post,Comment} = require('../models');
 
 
 //to get all posts if exist in DB 
-router.get('/', (req, res) => {
-    console.log(req.session);
-    Post.findAll({
+router.get('/home', async (req, res) => {
+    // console.log(req.session);
+   await Post.findAll({
             attributes: [
                 'id',
                 'title',
@@ -28,21 +28,23 @@ router.get('/', (req, res) => {
                 }
             ]
         })
-        .then(dbPost => {
-            //pass post objects to homepage template
-            const posts = dbPost.map(post => post.get({
-                plain: true
-            }));
-            //render post to home page
-            res.render('homepage', {
-                posts,
-                loggedIn: req.session.loggedIn
-            });
-        })
+        .then(async (dbPost) =>
+            {
+               let posts = await dbPost.map(post => post.get({ plain: true}))
+
+               console.log(posts)
+               //render post to home page
+               res.render('home', {
+                   posts,
+                   loggedIn: req.session.loggedIn
+               });
+            })    
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
+
+        
 });
 
 

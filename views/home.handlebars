@@ -1,0 +1,24 @@
+{{#if posts.length}}
+<ul class="postList">
+    {{#each posts as |post|}}
+    <li>
+        <!--{{> post-info post }}-->
+        <article class="post">
+      <div class="title">
+        <a href="{{post.content}}" target="_blank">{{p.title}}</a>
+        <span>({{post.content}})</span>
+      </div>
+      <div class="meta">
+        Created by {{post.user.username}} on
+        {{post.created_at}}
+        |
+        <a href="/post/{{p.id}}">{{post.comments.length}} comment(s)</a>
+      </div>
+    </article>
+    </li>
+    {{/each}}
+</ul>
+{{else}}
+<div>No Posts Available</div>
+<div>The length of the post array is {{posts.length}} </div>
+{{/if}}
